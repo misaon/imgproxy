@@ -1,6 +1,6 @@
 {
   "name": "@misaon/imgproxy",
-  "version": "1.0.0-rc",
+  "version": "1.0.0",
   "description": "Generate imgproxy url in browser and Node easily. Lightweight and Fast!\n\n",
   "repository": "@misaon/imgproxy",
   "license": "MIT",
