@@ -10,19 +10,22 @@ import {
 
 const imgproxySecret = "6F787973686F70";
 const imgproxySalt = "10D16F7A61";
-const imageUrl =
-  "http://object-storage:9000/oxyshop-nextgen/media/image/e9/77/151f15b8f9af244f7f61775ddb3d.png";
+const imageUrl = "https://img.dog-learn.com/dog-breeds/maltese/maltese-sz5.jpg";
 
 describe("@misaon/imgproxy", () => {
   test("toBase64", () => {
     expect(toBase64(imageUrl)).toBe(
-      "aHR0cDovL29iamVjdC1zdG9yYWdlOjkwMDAvb3h5c2hvcC1uZXh0Z2VuL21lZGlhL2ltYWdlL2U5Lzc3LzE1MWYxNWI4ZjlhZjI0NGY3ZjYxNzc1ZGRiM2QucG5n"
+      "aHR0cHM6Ly9pbWcuZG9nLWxlYXJuLmNvbS9kb2ctYnJlZWRzL21hbHRlc2UvbWFsdGVzZS1zejUuanBn"
     );
   });
 
   test("trimBase64", () => {
-    expect(trimBase64(imageUrl)).toBe(
-      "http:__object-storage:9000_oxyshop-nextgen_media_image_e9_77_151f15b8f9af244f7f61775ddb3d.png"
+    expect(
+      trimBase64(
+        "a=HR0cHM6Ly9pbWcuZG9nLWxlYXJuLmNvbS9k+b2ctYnJlZWRzL21hbHRlc2U/bWFsdGVzZS1zejUuanBn"
+      )
+    ).toBe(
+      "aHR0cHM6Ly9pbWcuZG9nLWxlYXJuLmNvbS9k-b2ctYnJlZWRzL21hbHRlc2U_bWFsdGVzZS1zejUuanBn"
     );
   });
 
@@ -34,9 +37,9 @@ describe("@misaon/imgproxy", () => {
     expect(
       generateSignature(
         generateHmac(imgproxySecret, imgproxySalt),
-        "/h:0/w:768/aHR0cDovL29iamVjdC1zdG9yYWdlOjkwMDAvb3h5c2hvcC1uZXh0Z2VuL21lZGlhL2ltYWdlL2U5Lzc3LzE1MWYxNWI4ZjlhZjI0NGY3ZjYxNzc1ZGRiM2QucG5n"
+        "/h:250/w:300/aHR0cHM6Ly9pbWcuZG9nLWxlYXJuLmNvbS9kb2ctYnJlZWRzL21hbHRlc2UvbWFsdGVzZS1zejUuanBn"
       )
-    ).toBe("Cx5iQmOHCbKutYvXOMuWX-wdEbifMFwgrMXtNJEPgow");
+    ).toBe("3mqw14PjyZJLm2__0RNPEDZcX8NLtLZkURz1MfoCTm4");
   });
 
   test("getImageUrl", () => {
@@ -46,12 +49,12 @@ describe("@misaon/imgproxy", () => {
         salt: imgproxySalt,
         baseURL: "/imgproxy",
         modifiers: {
-          width: "768",
-          height: "0",
+          width: "300",
+          height: "250",
         },
       })
     ).toBe(
-      "/imgproxy/Cx5iQmOHCbKutYvXOMuWX-wdEbifMFwgrMXtNJEPgow/h:0/w:768/aHR0cDovL29iamVjdC1zdG9yYWdlOjkwMDAvb3h5c2hvcC1uZXh0Z2VuL21lZGlhL2ltYWdlL2U5Lzc3LzE1MWYxNWI4ZjlhZjI0NGY3ZjYxNzc1ZGRiM2QucG5n"
+      "/imgproxy/3mqw14PjyZJLm2__0RNPEDZcX8NLtLZkURz1MfoCTm4/h:250/w:300/aHR0cHM6Ly9pbWcuZG9nLWxlYXJuLmNvbS9kb2ctYnJlZWRzL21hbHRlc2UvbWFsdGVzZS1zejUuanBn"
     );
   });
 });
