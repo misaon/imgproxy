@@ -53,7 +53,7 @@ console.log(imageUrl)
 ```
 
 ### Modifiers
-The list of modifiers that you can use is **well typed** or can be found [here]().
+The list of modifiers that you can use is **well typed** or can be found [here](https://github.com/misaon/imgproxy/blob/9e7b8b56187c617a1d513469fcff80e7072f085d/src/index.ts#L11).
 
 ## Development
 
