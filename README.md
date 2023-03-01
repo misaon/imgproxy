@@ -11,10 +11,12 @@
 
 - 👌&nbsp; Zero configuration
 - 🪄&nbsp; Modern, tiny and tree shaken code
-- ⚙️&nbsp; Written in TypeScript (well typed)
-- 📦&nbsp; Extendable and customizable
+- ⚙️&nbsp; Written in TypeScript
+- 🕒&nbsp; Async-less methods and crypto computing
 - 🚀&nbsp; Browser and Node support
-- 🧪&nbsp; Covered by tests
+- 📦&nbsp; Extendable and customizable
+- 📰&nbsp; Compatible with the latest version of [imgproxy](https://imgproxy.net/)
+- 🧪&nbsp; Covered by tests `>99%`
 
 ## Usage
 
@@ -31,7 +33,7 @@ yarn add @misaon/imgproxy
 pnpm install @misaon/imgproxy
 ```
 
-In your code:
+then in your code:
 
 ```js
 import { getImageUrl } from '@misaon/imgproxy'
@@ -45,7 +47,7 @@ const imageUrl = getImageUrl(sourceImageUrl, {
     modifiers: {
         width: '100',
         height: '75',
-        // other modifiers...
+        // other modifiers... (see below)
     }
 })
 
@@ -53,7 +55,7 @@ console.log(imageUrl)
 ```
 
 ### Modifiers
-The list of modifiers that you can use is **well typed** or can be found [here](https://github.com/misaon/imgproxy/blob/9e7b8b56187c617a1d513469fcff80e7072f085d/src/index.ts#L11).
+The list of modifiers that you can use is **well typed** and can be found [here](https://github.com/misaon/imgproxy/blob/9e7b8b56187c617a1d513469fcff80e7072f085d/src/index.ts#L11) or in [imgproxy docs](https://docs.imgproxy.net/generating_the_url?id=processing-options).
 
 ## Development
 

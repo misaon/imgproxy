@@ -8,6 +8,7 @@ import { Hex } from "crypto-es/lib/core.js";
 // @ts-expect-error crypto-es missing types
 import { Base64 } from "crypto-es/lib/enc-base64.js";
 
+// @url https://docs.imgproxy.net/generating_the_url?id=processing-options
 export interface Modifiers {
   "min-height"?: string;
   "min-width"?: string;
