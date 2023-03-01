@@ -41,7 +41,7 @@ import { getImageUrl } from '@misaon/imgproxy'
 // const { getImageUrl } = require("misaon/imgproxy");
 
 const imageUrl = getImageUrl(sourceImageUrl, {
-    baseURL: 'https://my-imgproxy.com',
+    baseURL: 'https://my-imgproxy.com', // optional
     secret: 'imgproxy-secret-key',
     salt: 'imgproxy-salt',
     modifiers: {

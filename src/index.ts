@@ -171,7 +171,7 @@ export function getImageUrl(
   options: {
     secret: string;
     salt: string;
-    baseURL: string;
+    baseURL?: string;
     modifiers: Modifiers;
   }
 ) {
@@ -181,5 +181,5 @@ export function getImageUrl(
   const hmac = generateHmac(options.secret, options.salt);
   const signature = generateSignature(hmac, encodedUrlWithModifiers);
 
-  return joinURL(options.baseURL, signature, encodedUrlWithModifiers);
+  return joinURL(options.baseURL ?? "/", signature, encodedUrlWithModifiers);
 }
