@@ -1,6 +1,17 @@
 # Changelog
 
 
+## v0.0.3
+
+
+### 🏡 Chore
+
+  - **release:** V0.0.2 (6c2b9e0)
+
+### ❤️  Contributors
+
+- Ondřej Misák ([@misaon](http://github.com/misaon))
+
 ## v0.0.2
 
 
