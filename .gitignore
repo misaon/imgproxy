@@ -1,0 +1,12 @@
+.idea
+node_modules
+coverage
+dist
+types
+.vscode
+.DS_Store
+.eslintcache
+*.log*
+*.conf*
+*.env*
+.npmrc
