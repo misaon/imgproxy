@@ -5,7 +5,7 @@
 [![Github Actions][github-actions-src]][github-actions-href]
 [![Codecov][codecov-src]][codecov-href]
 
-> Generate [imgproxy](https://imgproxy.net/) url in browser and Node easily. Lightweight and Fast!
+> Generate [imgproxy](https://imgproxy.net/) url in **browser and Node** easily. Lightweight and Fast!
 
 ## Features
 
@@ -37,10 +37,8 @@ then in your code:
 
 ```js
 import { getImageUrl } from '@misaon/imgproxy'
-// or commonJS
-// const { getImageUrl } = require("misaon/imgproxy");
 
-const imageUrl = getImageUrl(sourceImageUrl, {
+const imageUrl = getImageUrl('https://example.com/my-image.jpg', {
     baseURL: 'https://my-imgproxy.com', // optional
     secret: 'imgproxy-secret-key',
     salt: 'imgproxy-salt',
@@ -52,6 +50,15 @@ const imageUrl = getImageUrl(sourceImageUrl, {
 })
 
 console.log(imageUrl)
+```
+That's all! 🥂
+
+---
+
+If you like use **CommonJS**, you can import like this:
+
+```js
+const { getImageUrl } = require("misaon/imgproxy");
 ```
 
 ### Modifiers

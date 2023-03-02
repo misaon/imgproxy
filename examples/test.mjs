@@ -12,3 +12,4 @@ const imageUrl = getImageUrl('https://img.dog-learn.com/dog-breeds/maltese/malte
 })
 
 console.log(imageUrl)
+// Output: /imgproxy/3mqw14PjyZJLm2__0RNPEDZcX8NLtLZkURz1MfoCTm4/h:250/w:300/aHR0cHM6Ly9pbWcuZG9nLWxlYXJuLmNvbS9kb2ctYnJlZWRzL21hbHRlc2UvbWFsdGVzZS1zejUuanBn
