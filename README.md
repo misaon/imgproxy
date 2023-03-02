@@ -36,21 +36,22 @@ pnpm install @misaon/imgproxy
 then in your code:
 
 ```js
-import { getImageUrl } from '@misaon/imgproxy'
+import { getImageUrl } from "@misaon/imgproxy";
 
-const imageUrl = getImageUrl('https://example.com/my-image.jpg', {
-    baseURL: 'https://my-imgproxy.com', // optional
-    secret: 'imgproxy-secret-key',
-    salt: 'imgproxy-salt',
-    modifiers: {
-        width: '100',
-        height: '75',
-        // other modifiers... (see below)
-    }
-})
+const imageUrl = getImageUrl("https://example.com/my-image.jpg", {
+  baseURL: "https://my-imgproxy.com", // optional
+  secret: "imgproxy-secret-key",
+  salt: "imgproxy-salt",
+  modifiers: {
+    width: "100",
+    height: "75",
+    // other modifiers... (see below)
+  },
+});
 
-console.log(imageUrl)
+console.log(imageUrl);
 ```
+
 That's all! 🥂
 
 ---
@@ -62,6 +63,7 @@ const { getImageUrl } = require("misaon/imgproxy");
 ```
 
 ### Modifiers
+
 The list of modifiers that you can use is **well typed** and can be found [here](https://github.com/misaon/imgproxy/blob/9e7b8b56187c617a1d513469fcff80e7072f085d/src/index.ts#L11) or in [imgproxy docs](https://docs.imgproxy.net/generating_the_url?id=processing-options).
 
 ## Development
