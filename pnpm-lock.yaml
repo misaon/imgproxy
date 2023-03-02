@@ -6,7 +6,8 @@ specifiers:
   changelogen: ^0.4.1
   crypto-es: ^1.2.7
   eslint: ^8.34.0
-  eslint-config-misaon: ^0.0.3
+  eslint-config-misaon: ^0.0.4
+  prettier: ^2.8.4
   typescript: ^4.9.5
   ufo: ^1.1.1
   unbuild: ^1.1.2
@@ -21,7 +22,8 @@ devDependencies:
   '@vitest/coverage-c8': 0.29.2_vitest@0.29.2
   changelogen: 0.4.1
   eslint: 8.35.0
-  eslint-config-misaon: 0.0.3_ycpbpc6yetojsgtrx3mwntkhsu
+  eslint-config-misaon: 0.0.4_ycpbpc6yetojsgtrx3mwntkhsu
+  prettier: 2.8.4
   typescript: 4.9.5
   unbuild: 1.1.2
   vitest: 0.29.2
@@ -1701,8 +1703,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /eslint-config-misaon/0.0.3_ycpbpc6yetojsgtrx3mwntkhsu:
-    resolution: {integrity: sha512-JNtDwzMAhsXstO8uCtdFZE01LthwoApiU/piqKg/4+cgp1yRUiv0cnW+9JrSzdpeCMTwvhwwV+iKsitH8Koq2w==}
+  /eslint-config-misaon/0.0.4_ycpbpc6yetojsgtrx3mwntkhsu:
+    resolution: {integrity: sha512-wbk6hhvWOOA6de2fe507+TVD6tzfFaVxU51849qPzPVVPJJ5BtrUo1utw/syGmjYmgHC8divi6fYKRp1ZnI72g==}
     peerDependencies:
       eslint: '*'
       typescript: '*'
@@ -3194,6 +3196,12 @@ packages:
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier/2.8.4:
+    resolution: {integrity: sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /pretty-bytes/6.1.0:
