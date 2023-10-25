@@ -41,7 +41,7 @@
   },
   "packageManager": "pnpm@7.28.0",
   "dependencies": {
-    "crypto-es": "^1.2.7",
+    "crypto-es": "^2.1.0",
     "ufo": "^1.1.1"
   }
 }
