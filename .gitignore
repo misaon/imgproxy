@@ -1,6 +1,7 @@
 .idea
 node_modules
 coverage
+.gstack
 dist
 types
 .vscode
@@ -8,5 +9,6 @@ types
 .eslintcache
 *.log*
 *.conf*
+!*.config.ts
 *.env*
 .npmrc

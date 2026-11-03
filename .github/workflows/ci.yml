@@ -8,18 +8,52 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: corepack enable
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
         with:
-          node-version: 18
-          cache: "pnpm"
-      - run: pnpm install
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
       - run: pnpm lint
+      - run: pnpm typecheck
       - run: pnpm build
-      - run: pnpm vitest --coverage
-      - uses: codecov/codecov-action@v3
+      - run: pnpm vitest run --coverage
+      - uses: codecov/codecov-action@v7
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+      - uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: dist
+
+  runtime:
+    needs: ci
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [16, 18, 20, 22, 24, 26]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+          package-manager-cache: false
+      - run: node test/smoke/esm.mjs
+      - run: node test/smoke/cjs.cjs

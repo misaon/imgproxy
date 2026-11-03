@@ -1,3 +1,9 @@
 {
-  "extends": ["github>unjs/renovate-config"]
+  "extends": ["github>unjs/renovate-config"],
+  "packageRules": [
+    {
+      "matchDepNames": ["@misaon/imgproxy-v1"],
+      "enabled": false
+    }
+  ]
 }
