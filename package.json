@@ -1,47 +1,74 @@
 {
   "name": "@misaon/imgproxy",
   "version": "1.0.1",
-  "description": "Generate imgproxy url in browser and Node easily. Lightweight and Fast!",
-  "repository": "@misaon/imgproxy",
+  "description": "Generate signed imgproxy URLs in the browser, Node.js and edge runtimes. Zero dependencies, tiny and fast.",
   "license": "MIT",
-  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misaon/imgproxy.git"
+  },
+  "homepage": "https://github.com/misaon/imgproxy#readme",
+  "bugs": "https://github.com/misaon/imgproxy/issues",
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    }
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
+      "default": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
+    },
+    "./package.json": "./package.json"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "packageManager": "pnpm@12.16.1",
+  "scripts": {
+    "build": "tsdown",
+    "dev": "vitest",
+    "lint": "eslint . && prettier --check .",
+    "lint:fix": "eslint . --fix && prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "prepack": "pnpm run build",
+    "release": "pnpm test && pnpm build && pnpm test:smoke && changelogen --release --no-github && npm publish && git push --follow-tags && changelogen gh release",
+    "test": "pnpm lint && pnpm typecheck && vitest run --coverage",
+    "test:smoke": "node test/smoke/esm.mjs && node test/smoke/cjs.cjs"
+  },
   "files": [
     "dist"
   ],
-  "scripts": {
-    "build": "unbuild",
-    "dev": "vitest dev",
-    "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src test",
-    "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
-    "prepack": "pnpm run build",
-    "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
-    "test": "pnpm lint && vitest run --coverage"
-  },
+  "keywords": [
+    "imgproxy",
+    "image",
+    "url",
+    "signature",
+    "hmac",
+    "resize",
+    "thumbnail"
+  ],
   "devDependencies": {
-    "@types/node": "^18.14.4",
-    "@vitest/coverage-c8": "^0.29.1",
-    "changelogen": "^0.4.1",
-    "eslint": "^8.34.0",
-    "eslint-config-misaon": "^0.0.4",
-    "prettier": "^2.8.4",
-    "typescript": "^4.9.5",
-    "unbuild": "^1.1.2",
-    "vitest": "^0.29.1"
-  },
-  "packageManager": "pnpm@7.28.0",
-  "dependencies": {
-    "crypto-es": "^1.2.7",
-    "ufo": "^1.1.1"
+    "@arethetypeswrong/core": "^0.18.5",
+    "@misaon/imgproxy-v1": "npm:@misaon/imgproxy@1.0.1",
+    "@types/node": "^24.19.2",
+    "@vitest/coverage-v8": "^5.0.5",
+    "changelogen": "^0.6.2",
+    "eslint": "^10.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-config-xo": "^7.0.0",
+    "eslint-plugin-unicorn": "^79.0.0",
+    "prettier": "^3.9.10",
+    "publint": "^0.3.25",
+    "tsdown": "^0.23.4",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.5"
   }
 }
