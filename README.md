@@ -133,6 +133,7 @@ The public API is unchanged, and URLs built from ASCII sources with valid hex ke
 - Install dependencies using `pnpm install`
 - Run interactive tests using `pnpm dev`
 - Run all checks using `pnpm test` and build the package using `pnpm build`
+- Run the end-to-end tests against a real imgproxy using `pnpm test:e2e` (needs Docker; set `IMGPROXY_IMAGE` to test another image)
 
 ## License
 

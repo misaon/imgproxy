@@ -29,7 +29,7 @@ jobs:
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm build
-      - run: pnpm vitest run --coverage
+      - run: pnpm vitest run --project unit --coverage
       - uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -37,6 +37,19 @@ jobs:
         with:
           name: dist
           path: dist
+
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: docker pull --quiet ghcr.io/imgproxy/imgproxy:v4
+      - run: pnpm test:e2e
 
   runtime:
     needs: ci

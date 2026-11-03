@@ -34,13 +34,14 @@
   "packageManager": "pnpm@12.16.1",
   "scripts": {
     "build": "tsdown",
-    "dev": "vitest",
+    "dev": "vitest --project unit",
     "lint": "eslint . && prettier --check .",
     "lint:fix": "eslint . --fix && prettier --write .",
     "typecheck": "tsc --noEmit",
     "prepack": "pnpm run build",
     "release": "pnpm test && pnpm build && pnpm test:smoke && changelogen --release --no-github && npm publish && git push --follow-tags && changelogen gh release",
-    "test": "pnpm lint && pnpm typecheck && vitest run --coverage",
+    "test": "pnpm lint && pnpm typecheck && vitest run --project unit --coverage",
+    "test:e2e": "vitest run --project e2e",
     "test:smoke": "node test/smoke/esm.mjs && node test/smoke/cjs.cjs"
   },
   "files": [
