@@ -1,6 +1,6 @@
 {
   "name": "@misaon/imgproxy",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Generate signed imgproxy URLs in the browser, Node.js and edge runtimes. Zero dependencies, tiny and fast.",
   "license": "MIT",
   "repository": {
